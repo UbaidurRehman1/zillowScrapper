@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RootPane">
+   <top>
+      <BorderPane prefHeight="88.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <top>
+            <MenuBar style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem fx:id="export_to_csv" mnemonicParsing="false" text="Export to CSV" />
+                        <MenuItem fx:id="export_to_xmls" mnemonicParsing="false" text="Export to XLS" />
+                    <MenuItem fx:id="close" mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                        <MenuItem fx:id="uploadLogo" mnemonicParsing="false" text="Upload Logo" />
+                        <MenuItem fx:id="deleteLogo" mnemonicParsing="false" text="Delete Logo" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <bottom>
+         </bottom>
+         <bottom>
+            <AnchorPane prefHeight="73.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="8.0" prefHeight="29.0" prefWidth="64.0" text="Enter URL" />
+                  <TextField fx:id="ulrField" layoutX="78.0" layoutY="10.0" prefHeight="25.0" prefWidth="286.0" />
+                  <Button fx:id="button" layoutX="288.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Start" />
+                  <ComboBox fx:id="combobox" layoutX="402.0" layoutY="12.0" prefHeight="25.0" prefWidth="236.0" promptText="URLs" />
+                  <TextField fx:id="renameField" layoutX="402.0" layoutY="39.0" prefHeight="25.0" prefWidth="171.0" promptText="Rename URL" />
+                  <Button fx:id="renameButton" layoutX="585.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="53.0" text="OK" />
+                  <Button fx:id="deleteButton" layoutX="646.0" layoutY="12.0" mnemonicParsing="false" text="Delete Record" textFill="#e40000" />
+                  <Label fx:id="counterLabel" layoutX="14.0" layoutY="38.0" prefHeight="24.0" prefWidth="254.0" />
+                  <Button fx:id="deleteTable" layoutX="646.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Delete Table" textFill="#e40000" />
+                  <ImageView fx:id="imageView" fitHeight="40.0" fitWidth="200.0" layoutX="761.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+               </children></AnchorPane>
+         </bottom>
+      </BorderPane>
+   </top>	
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <TableView fx:id="table" prefHeight="355.0" prefWidth="998.0">
+              <columns>
+                  <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="address" prefWidth="75.0" text="Address" />
+                <TableColumn fx:id="bed" prefWidth="75.0" text="Bed" />
+                  <TableColumn fx:id="bath_count" prefWidth="75.0" text="Bath Count" />
+                  <TableColumn fx:id="sqft" prefWidth="75.0" text="Sqft" />
+                  <TableColumn fx:id="listing_type" prefWidth="75.0" text="Listing Type" />
+                  <TableColumn fx:id="price" prefWidth="75.0" text="Price ($)" />
+                  <TableColumn fx:id="priceBySqft" prefWidth="75.0" text="Price/SqFt" />
+                  <TableColumn fx:id="propery" prefWidth="75.0" text="Phone" />
+                  <TableColumn fx:id="description" prefWidth="75.0" text="Description" />
+                  <TableColumn fx:id="year_built" prefWidth="75.0" text="Year Built" />
+                  <TableColumn fx:id="type" prefWidth="75.0" text="Type" />
+                  <TableColumn fx:id="datePosted" prefWidth="75.0" text="Date Posted" />
+                  <TableColumn fx:id="status" prefWidth="75.0" text="Status" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="963.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="40.0" prefWidth="44.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <BorderPane maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <Label fx:id="label" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="1021.0" style="-fx-background-color: grey;" text="Ready" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="Cambria" size="12.0" />
+                     </font></Label>
+               </center>
+            </BorderPane>
+            <ProgressIndicator fx:id="progressIndicator" progress="0.0" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+   </bottom>
+</BorderPane>
